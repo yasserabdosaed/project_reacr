@@ -1,22 +1,40 @@
 import { useState } from "react";
 
-export default function Yas(params) {
+export default function FOyas(){
 
-let [cc,nnn] = useState("")
-   
-function ss(params) {
-console.log(params.target.value);
-nnn(params.target.value)
+    let [allgt,allst]= useState({im:"",pas:""})
 
+    return(
+        <form onSubmit={(f)=>{
+f.preventDefault()
+        }}>
 
+<input value={allgt.im} onChange={(emm)=>{
+allst({...allgt,im:emm.target.value})
+}}/>
+<br/>
+<input value={allgt.pas} onChange={(paa)=>{
+allst({...allgt,pas:paa.target.value})
+}}/>
+<br/>
+
+<button>OK</button>
+
+<div style={{
+    border:"2px solid red"
+}}>
+
+<p>{allgt.im}</p>
+<p>{allgt.pas}</p>
+
+</div>
+
+        </form>
+    );
 
     
-}
-    return(
-        <div>
 
-            <h1 >{cc}</h1>
-            <input value={cc}  onChange={ss}  />
-        </div>
-    );
+   
+
+
 }
