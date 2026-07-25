@@ -1,71 +1,57 @@
 import { useState } from "react";
 
-export default function Ha(params) {
-  
-  let [allgt, allst] = useState({
-    x:0,
-    name:"",
-    emile:"",
-    chk:false
-  });
+export default function Yas(){
+
+  let [allgt,allst] = useState("")
+  let [ss,ssall] = useState(["yasser","ali","samer","monther","hasn"])
+
+
+  let sslist = ss.map((mm)=>{
+    return <div  style={{
+        margin : "auto",
+        width:"4"
+      }}>
+      <ul> <li style={{
+          color:"black"
+        }}>{mm}</li></ul>
+       
+      </div>
+
+
+    
+
+  })
+
+
+
 
   return (
-    <div
-      style={{
-        width: "100%",
-      }}
-    >
-      <div
-        style={{
-            padding:"10px",
-          width: "400px",
-          height: "200px",
-          backgroundColor: "white",
-          margin: "20px auto",
-        }}
-      >
-        <h3
-          style={{
-            display: "inline-block",
-            marginRight: "10px",
-          }}
-        >
-          scro:{allgt.x}{" "}
-        </h3>
-        <button onClick={(ee) => {
-          
-          
-            allst({...allgt,x:allgt.x + 1});
-            
-        }}>+1</button>
+    <div style={{
+      width:"100%",
+      textAlign:"center"
+   
+    }}>
+      <div> {sslist}
 
-        <form onSubmit={(n)=>{
-n.preventDefault()
-console.log(allgt)
-        }}>
+      <input value={allgt} onChange={(vv)=>{
+       allst(vv.target.value) 
+
+       console.log(allgt)
+      }}/>
+      <button onClick={()=>{
+        let pp = [...ss]
+        pp.push(allgt)
+        ssall(pp)
+
+
+  
+
+
+      }}>add</button></div>
+
+
      
-     username : <input value={allgt.name} onChange={(nn)=>{
-allst({...allgt,name:nn.target.value})
-     }}/>
-     <br/>
-     gimail : <input value={allgt.emile} onChange={(ii)=>{
-allst({...allgt,emile:ii.target.value})
-     }}/>
-     <input onChange={(c)=>{
-console.log(c.target.checked)
-allst({...allgt,chk:c.target.checked
-
-})
-
-
-     }} type="checkbox" />
-
-     <button>OK</button>
-
-
-
-        </form>
-      </div>
     </div>
+
   );
 }

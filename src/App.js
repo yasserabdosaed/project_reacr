@@ -3,9 +3,16 @@ import './App.css';
 
 
 function App() {
-  document.body.style.backgroundColor="black"
+//   let ss=["yasser","ali","samer","monther","hasn"]
+//   let sslist = ss.map((mm)=>{
+// return <li>{mm}</li>
+//   })
+
+  // document.body.style.backgroundColor="black"
   return (
     <div >
+      
+
      <Yas/>
     </div>
   );
