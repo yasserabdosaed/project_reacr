@@ -1,19 +1,28 @@
 import { useState } from "react";
-
+let nn = 5;
 export default function Yas(){
 
   let [allgt,allst] = useState("")
-  let [ss,ssall] = useState(["yasser","ali","samer","monther","hasn"])
+  let [ss,ssall] = useState([
+    {id:1,nam:"yasser"},
+    {id:2,nam:"ali"},
+    {id:3,nam:"samer"},
+    {id:4,nam:"monther"},
+    {id:5,nam:"hasn"},
+    ])
 
 
   let sslist = ss.map((mm)=>{
-    return <div  style={{
+    return <div key={mm.id} style={{
         margin : "auto",
         width:"4"
       }}>
-      <ul> <li style={{
+      <ul> <li key={ss.id} style={{
           color:"black"
-        }}>{mm}</li></ul>
+        }}>{mm.nam}    <button onClick={()=>{
+          aaaaa(mm.id)
+             
+        }}>del</button></li></ul>
        
       </div>
 
@@ -22,7 +31,12 @@ export default function Yas(){
 
   })
 
+function aaaaa(i){
 
+  
+ssall(ss.filter((item) => item.id !== i));
+
+}
 
 
   return (
@@ -39,9 +53,11 @@ export default function Yas(){
        console.log(allgt)
       }}/>
       <button onClick={()=>{
-        let pp = [...ss]
-        pp.push(allgt)
-        ssall(pp)
+        // let pp = [...ss]
+        // pp.push(allgt)
+        nn++
+        ssall([...ss,{nam:allgt,id:nn}])
+        console.log(nn)
 
 
   
