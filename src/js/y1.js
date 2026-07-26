@@ -1,73 +1,40 @@
 import { useState } from "react";
-let nn = 5;
+let o=0;
 export default function Yas(){
+let [allgt,allst]=useState({
+  an:0,
+  en:0
+})
 
-  let [allgt,allst] = useState("")
-  let [ss,ssall] = useState([
-    {id:1,nam:"yasser"},
-    {id:2,nam:"ali"},
-    {id:3,nam:"samer"},
-    {id:4,nam:"monther"},
-    {id:5,nam:"hasn"},
-    ])
+function cc(){
+  allst(
+  {...allgt,an:allgt.an+1}
+  )
+  o++
 
+  setTimeout(()=>{
+allst((m)=>{
 
-  let sslist = ss.map((mm)=>{
-    return <div key={mm.id} style={{
-        margin : "auto",
-        width:"4"
-      }}>
-      <ul> <li key={ss.id} style={{
-          color:"black"
-        }}>{mm.nam}    <button onClick={()=>{
-          aaaaa(mm.id)
-             
-        }}>del</button></li></ul>
-       
-      </div>
+return {...m,en:o}
+})
 
-
-    
-
-  })
-
-function aaaaa(i){
-
+allst((e)=>{
   
-ssall(ss.filter((item) => item.id !== i));
-
+  return {...e,an:o}
+})
+  },5000)
 }
 
-
   return (
-    <div style={{
-      width:"100%",
-      textAlign:"center"
-   
-    }}>
-      <div> {sslist}
+   <>
+   <label>antthar : {allgt.an}</label>
+   <br/>
+   <label>end : {allgt.en}</label>
 
-      <input value={allgt} onChange={(vv)=>{
-       allst(vv.target.value) 
+   <br/>
 
-       console.log(allgt)
-      }}/>
-      <button onClick={()=>{
-        // let pp = [...ss]
-        // pp.push(allgt)
-        nn++
-        ssall([...ss,{nam:allgt,id:nn}])
-        console.log(nn)
-
-
-  
-
-
-      }}>add</button></div>
-
-
-     
-    </div>
+   <button onClick={cc}>add</button>
+   </>
 
   );
 }
